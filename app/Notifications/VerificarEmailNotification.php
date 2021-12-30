@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Notifications;
+namespace App\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\URL;
 
-class VerificarEmailNotifications extends Notification
+class VerificarEmailNotification extends Notification
 {
     /**
      * The callback that should be used to create the verify email URL.
@@ -26,10 +26,10 @@ class VerificarEmailNotifications extends Notification
      */
     public static $toMailCallback;
 
-    public function __construct($name)
-    {
+    public function __construct($name) {
         $this->name = $name;
     }
+
     /**
      * Get the notification's channels.
      *
@@ -67,11 +67,11 @@ class VerificarEmailNotifications extends Notification
     protected function buildMailMessage($url)
     {
         return (new MailMessage)
-            ->subject('Verifique o endereço de e-mail')
+            ->subject('Confirmação de e-mail')
             ->greeting('Olá '.$this->name)
-            ->line('Clique no botão abaixo para verificar o seu endereço de e-mail.')
-            ->action('Clique Aqui para Validar o seu email',$url)
-            ->line('Se você não criou uma conta, nenhuma ação adicional é necessária.');
+            ->line('Clique no botão abaixo para validar seu e-mail')
+            ->action('Clique aqui para validar seu e-mail', $url)
+            ->line('Caso você não tenha se cadastrado em nosso sistema, apenas desconsidere essa mensagem');
     }
 
     /**

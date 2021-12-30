@@ -1,12 +1,12 @@
 @component('mail::message')
-# {{$tarefa}}
+# {{ $tarefa }}
 
-Data Limite de Conclusão: {{$data_limite_conclusao}}
+Data limite de conclusão: {{ $data_limite_conclusao }}
 
 @component('mail::button', ['url' => $url])
-Clique Aqui para ver a Tarefa
+Clique aqui para ver a tarefa
 @endcomponent
 
-Obrigado,<br>
+Att,<br>
 {{ config('app.name') }}
 @endcomponent
