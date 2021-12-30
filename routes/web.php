@@ -22,7 +22,7 @@ Route::get('/', function () {
 // Verificando email no cadastro
 Auth::routes(['verify'=> true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 Route::resource('tarefa', 'TarefaController')->middleware('verified');
 Route::get('/mensagem-teste', function(){
     return new MensagemTesteMail();
